@@ -1,4 +1,4 @@
-import { Alert, Button, Modal, ModalBody, TextInput } from 'flowbite-react';
+import { Alert, Button, Modal, TextInput } from 'flowbite-react';
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
@@ -24,7 +24,7 @@ import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 
 export default function DashProfile() {
-  const { currentUser, error, loading } = useSelector((state) => state.user);
+  const { currentUser,error, loading } = useSelector((state) => state.user);
   const [imageFile, setImageFile] = useState(null);
   const [imageFileUrl, setImageFileUrl] = useState(null);
   const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
@@ -76,7 +76,7 @@ export default function DashProfile() {
       },
       (error) => {
         setImageFileUploadError(
-          'Could not upload image (File must be less than 2MB)'
+          `Could not upload image. Error: ${error.message}`
         );
         setImageFileUploadProgress(null);
         setImageFile(null);
@@ -291,7 +291,7 @@ export default function DashProfile() {
             </h3>
             <div className='flex justify-center gap-4'>
               <Button color='failure' onClick={handleDeleteUser}>
-                Yes, I'm sure
+                Yes, I&apos;m sure
               </Button>
               <Button color='gray' onClick={() => setShowModal(false)}>
                 No, cancel
