@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Comment from './Comment';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import PropTypes from 'prop-types';
 
 export default function CommentSection({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
@@ -204,7 +205,7 @@ export default function CommentSection({ postId }) {
                 color='failure'
                 onClick={() => handleDelete(commentToDelete)}
               >
-                Yes, I'm sure
+                Yes, I&apos;m sure
               </Button>
               <Button color='gray' onClick={() => setShowModal(false)}>
                 No, cancel
@@ -216,3 +217,10 @@ export default function CommentSection({ postId }) {
     </div>
   );
 }
+
+CommentSection.propTypes = {
+  postId: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+};
