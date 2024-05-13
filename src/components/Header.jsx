@@ -59,6 +59,7 @@ export default function Header() {
         </span>
         Blog
       </Link>
+      <div className='flex gap-2 md:order-2 justify-center items-center'>
       <form onSubmit={handleSubmit}>
         <TextInput
           type='text'
@@ -69,14 +70,18 @@ export default function Header() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
-      <Button className='w-12 h-10 lg:hidden' color='gray' pill>
-        <AiOutlineSearch />
-      </Button>
-      <div className='flex gap-2 md:order-2'>
+      
+        <Button className='w-12 h-10 lg:hidden' color='gray' pill>
+          <AiOutlineSearch />
+        </Button>
+      </div>
+      <div className='flex gap-2 md:order-2 justify-center items-center'>
         <Button
-          className='w-12 h-10 hidden sm:inline'
+          className='theme-toggle-button w-12 h-10 hidden sm:inline'
           color='gray'
           pill
+          aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
+          title={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
           onClick={() => dispatch(toggleTheme())}
         >
           {theme === 'light' ? <FaSun /> : <FaMoon />}
@@ -99,11 +104,11 @@ export default function Header() {
               <Dropdown.Item>Profile</Dropdown.Item>
             </Link>
             <Dropdown.Divider />
-            <Dropdown.Item onClick={handleSignout}>Sign out</Dropdown.Item>
+            <Dropdown.Item onClick={handleSignout} aria-label="Sign out">Sign out</Dropdown.Item>
           </Dropdown>
         ) : (
           <Link to='/sign-in'>
-            <Button gradientDuoTone='purpleToBlue' outline>
+            <Button gradientDuoTone='purpleToBlue' outline aria-label="Sign in" title="Sign in">
               Sign In
             </Button>
           </Link>
