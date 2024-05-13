@@ -1,13 +1,25 @@
+:root {
+  --font-size-normal: 1.05rem;
+  --font-size-h1: 1.5rem;
+  --font-size-h2: 1.4rem;
+  --color-link: rgb(73, 149, 199);
+  --color-link-hover: underline;
+  --color-link-dark: red;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .ql-editor {
-  font-size: 1.05rem;
+  font-size: var(--font-size-normal);
 }
 
 .post-content p {
@@ -15,27 +27,27 @@ body {
 }
 
 .post-content h1 {
-  font-size: 1.5rem;
+  font-size: var(--font-size-h1);
   font-weight: 600;
   font-family: sans-serif;
   margin: 1.5rem 0;
 }
 
 .post-content h2 {
-  font-size: 1.4rem;
+  font-size: var(--font-size-h2);
   font-family: sans-serif;
   margin: 1.5rem 0;
 }
 
 .post-content a {
-  color: rgb(73, 149, 199);
+  color: var(--color-link);
   text-decoration: none;
 }
 
 .post-content a:hover {
-  text-decoration: underline;
+  text-decoration: var(--color-link-hover);
 }
 
 .dark .post-content a {
-  color: red;
+  color: var(--color-link-dark);
 }
