@@ -71,7 +71,7 @@ export default function Header() {
         />
       </form>
       
-        <Button className='w-12 h-10 lg:hidden' color='gray' pill>
+        <Button className='w-12 h-10 lg:hidden flex items-center justify-center' color='gray' pill>
           <AiOutlineSearch />
         </Button>
       </div>
