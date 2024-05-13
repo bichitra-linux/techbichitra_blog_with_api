@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { FaThumbsUp } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { Button, Textarea } from 'flowbite-react';
-import { set } from 'mongoose';
+import PropTypes from 'prop-types';
+//import { set } from 'mongoose';
 
 export default function Comment({ comment, onLike, onEdit, onDelete }) {
   const [user, setUser] = useState({});
@@ -141,3 +142,17 @@ export default function Comment({ comment, onLike, onEdit, onDelete }) {
     </div>
   );
 }
+
+Comment.propTypes = {
+  comment: PropTypes.shape({
+    content: PropTypes.string,
+    userId: PropTypes.string,
+    _id: PropTypes.string,
+    createdAt: PropTypes.string,
+    likes: PropTypes.arrayOf(PropTypes.string),
+    numberOfLikes: PropTypes.number,
+  }).isRequired,
+  onLike: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
